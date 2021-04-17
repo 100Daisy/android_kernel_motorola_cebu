@@ -3,16 +3,16 @@
 #
 
 config TOUCHSCREEN_CHIPONE_TDDI_MMI
-		tristate "Chipone TDDI Motorola Display"
-		default n
-			help
-	  			This is the main file for touchpanel driver for Chipone TDDI 
-	  			touchscreens.
+	tristate "Chipone TDDI Motorola Display"
+	depends on I2C
+	help
+	  	This is the main file for touchpanel driver for Chipone TDDI 
+	  	touchscreens.
 
-	  			Say Y here if you have a Chipone TDDI touchscreen connected
-	  			to your system.
+	  	Say Y here if you have a Chipone TDDI touchscreen connected
+	  	to your system.
 
-	  			If unsure, say N.
+	  	If unsure, say N.
 
-	  	To compile this driver as a module, choose M here: the 
-	  	module will be called chipone_tddi_mmi.
+	  To compile this driver as a module, choose M here: the 
+	  module will be called chipone_tddi_mmi.
