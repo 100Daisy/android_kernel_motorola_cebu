@@ -1,0 +1,7 @@
+# add -Wall to try to catch everything we can.
+EXTRA_CFLAGS += -Wall
+EXTRA_CFLAGS += -I$(TOP)/vendor/qcom/opensource/audio-kernel/include
+EXTRA_CFLAGS += -I$(TOP)/vendor/qcom/opensource/audio-kernel/include/uapi/
+
+aw882xx_k419-objs = aw882xx.o
+obj-$(CONFIG_SND_SOC_AWINIC_AW882XX) += snd_smartpa_aw882xx.o
