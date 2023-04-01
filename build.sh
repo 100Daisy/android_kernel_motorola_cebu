@@ -32,29 +32,9 @@ build_kernel() {
 make $1_defconfig ARCH=arm64 O=out CC=clang
 build_kernel
 
-# Zip up the kernel
-zip_kernelimage() {
-    rm -rf AnyKernel3/Image.gz-dtb
-    cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3
-    rm -rf AnyKernel3/*.zip
-    BUILD_TIME=$(date +"%d%m%Y-%H%M")
-    cd AnyKernel3
-    KERNEL_NAME=SunBurn-$1-"${BUILD_TIME}"
-    zip -r9 "$KERNEL_NAME".zip ./*
-    cd ..
-}
-
-FILE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
+FILE="$(pwd)/out/arch/arm64/boot/Image.gz"
 if [ -f "$FILE" ]; then
-    zip_kernelimage $1
-    KERN_FINAL="$(pwd)/AnyKernel3/"$KERNEL_NAME".zip"
     echo "The kernel has successfully been compiled and can be found in $KERN_FINAL"
-    if [ "$UPLD" = 1 ]; then
-        for i in "$UPLD_PROV" "$UPLD_PROV2"; do
-            curl --connect-timeout 5 -T "$KERN_FINAL" "$i"
-            echo " "
-        done
-    fi
 else
     echo "The kernel has failed to compile. Please check the terminal output for further details."
     exit 1
