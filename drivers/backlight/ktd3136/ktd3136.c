@@ -23,7 +23,7 @@
 #include <linux/fb.h>
 #endif
 
-#include "ktd3136_bl.h"
+#include "ktd3136.h"
 
 #define KTD3136_LED_DEV 	"ktd3136-BL"
 #define KTD3136_NAME 		"ktd3136-bl"
