@@ -1,0 +1,1 @@
+obj-y += ktd3136_bl.o
