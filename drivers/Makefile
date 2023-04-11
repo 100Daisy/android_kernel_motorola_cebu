@@ -192,5 +192,3 @@ obj-$(CONFIG_SIOX)		+= siox/
 obj-$(CONFIG_GNSS)		+= gnss/
 obj-y				+= sensors/
 obj-$(CONFIG_MMI_RELAY) += mmi_relay/
-obj-y	+= backlight/aw99703/
-obj-y	+= backlight/kdt3136/
